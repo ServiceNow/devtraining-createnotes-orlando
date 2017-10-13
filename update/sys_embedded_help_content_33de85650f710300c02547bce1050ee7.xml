@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_embedded_help_content">
+    <sys_embedded_help_content action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <content><![CDATA[ <h1 class="title topictitle1">Widgets</h1>  <div class="body conbody">  <p class="p"><span class="ph">Widgets enable you to define and reuse visualizations for   indicators and display these visualizations on dashboards.</span></p>  <p class="p">A widget determines how data is presented on dashboards such as in a chart,   latest score, speedometer, dial, scorecard, or column. Widgets are always linked to an   indicator.</p>  <div class="p">Widgets are global, so:<ul class="ul" id="pa_widgets_list-normal__d26658e48"><li class="li">Anyone can see a widget you created</li><li class="li">Anyone can use the widget when creating their dashboard</li><li class="li">Anyone can edit your widget</li></ul>Follow these practices when creating and editing widgets:<ul class="ul" id="pa_widgets_list-normal__d26658e60"><li class="li">Always create a new widget when you need an alternate view.</li><li class="li">Do not change an existing widget when you did not create it.</li></ul></div> </div>]]></content>
+        <last_sync>2017-10-13 23:39:13</last_sync>
+        <modifier>normal</modifier>
+        <name>pa_widgets_list-normal</name>
+        <page>pa_widgets_list</page>
+        <product>1</product>
+        <qualifier/>
+        <role/>
+        <role_order>1000</role_order>
+        <snc_created>true</snc_created>
+        <sys_class_name>sys_embedded_help_content</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2017-10-13 23:39:13</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>33de85650f710300c02547bce1050ee7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>pa_widgets_list-normal</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>sys_embedded_help_content_33de85650f710300c02547bce1050ee7</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2017-10-13 23:39:13</sys_updated_on>
+        <version>j</version>
+    </sys_embedded_help_content>
+    <sys_translated_text action="delete_multiple" query="documentkey=33de85650f710300c02547bce1050ee7"/>
+</record_update>
