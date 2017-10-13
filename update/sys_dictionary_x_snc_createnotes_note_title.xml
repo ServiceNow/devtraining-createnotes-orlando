@@ -61,8 +61,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sys_dictionary_x_snc_createnotes_note_title</sys_update_name>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2017-04-20 17:44:45</sys_updated_on>
+        <sys_updated_by>me.niedzielski@snc</sys_updated_by>
+        <sys_updated_on>2017-10-13 22:25:53</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
