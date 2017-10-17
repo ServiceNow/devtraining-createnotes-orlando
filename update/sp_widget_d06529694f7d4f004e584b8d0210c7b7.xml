@@ -16,7 +16,7 @@
 			$timeout();
 		});
 	});
-	
+
 	c.updateNote = function(updateType) {
 		c.server.get({
 			action: 'updateNote',
@@ -24,6 +24,10 @@
 			noteBody: c.data.note,
 			noteTitle: c.data.title
 		}).then(function(r) {
+			// When the promise is returned, broadcast the change
+			if (updateType == 'title' || updateType == 'body') { 
+				$rootScope.$broadcast('updateTitle', r.data.title, r.data.note); 
+			}
 		});
 	}
 
@@ -50,7 +54,6 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-	/* populate the 'data' object */
 
 	if (input && input.noteID) {
 		var note = new GlideRecord('x_snc_createnotes_note');
@@ -64,6 +67,11 @@
 				note.title = input.noteTitle; 
 				note.note = input.noteBody; 
 				note.update(); 
+				// Need to update the data object with the new title
+				// and first 20 characters of the note (do not want to write huge
+				// strings to the Notes List widget)
+				data.title = note.getValue('title');
+				data.note = note.getValue('note').slice(0,20);
 			}
 		}
 	}
@@ -73,14 +81,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-10-14 01:17:32</sys_created_on>
         <sys_id>d06529694f7d4f004e584b8d0210c7b7</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_name>Notes Body</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_d06529694f7d4f004e584b8d0210c7b7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-10-17 20:21:57</sys_updated_on>
+        <sys_updated_on>2017-10-17 21:38:25</sys_updated_on>
         <template><![CDATA[	<div class="panel panel-default" ng-show="c.data.noteID">
 	  <div class="panel-heading clearfix">
 	    <div class="row">
