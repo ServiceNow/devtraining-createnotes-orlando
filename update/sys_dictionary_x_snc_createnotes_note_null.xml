@@ -52,7 +52,7 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-04-10 15:48:52</sys_created_on>
-        <sys_id>c3431ded4f3d4f004e584b8d0210c7af</sys_id>
+        <sys_id>392eb31a4fb143004e584b8d0210c770</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_createnotes_note</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
@@ -60,7 +60,7 @@
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sys_dictionary_x_snc_createnotes_note_NULL</sys_update_name>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2017-10-13 23:58:33</sys_updated_on>
+        <sys_updated_on>2017-10-16 20:20:29</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
