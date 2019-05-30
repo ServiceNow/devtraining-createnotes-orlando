@@ -3,7 +3,7 @@
         <element default="Enter notes here" label="Note" max_length="4000" name="note" type="string"/>
         <element default="javascript:getNextObjNumberPadded();" display="true" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" type="string" use_dynamic_default="true"/>
         <element default="New Note" label="Title" max_length="100" name="title" type="string"/>
-        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element default="javascript:gs.getUserID();" dynamic_default_value="2fd8e97bef3221002841f7f775c0fbc1" label="User" max_length="32" name="user" reference="sys_user" type="reference" use_dynamic_default="true"/>
         <index name="index">
             <element name="user"/>
         </index>
