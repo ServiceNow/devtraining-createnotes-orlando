@@ -15,18 +15,35 @@
 		$rootScope.noteID = id;
 		$rootScope.$emit('selectNote', id);
 	}
-  // Subscribe to event.  Set the new title and note values on the 
+	// Subscribe to event.  Set the new title and note values on the 
 	// c.data object
 	$rootScope.$on('updateTitle', function(event,data) { 
-		console.log("updateTitle event received: " + event);
-		console.log(data);
 		c.data.notes[c.notePos].title = data.title;
 		c.data.notes[c.notePos].note = data.note;
 	});
-	
-}]]></client_script>
+
+	c.newNote = function() {
+		c.server.get({
+			action: 'newNote'
+		}).then(function(r) {
+			c.data.notes.unshift(r.data.newNote);
+			c.data.noteID = r.data.noteID;
+			$rootScope.noteID = c.data.noteID;
+			$rootScope.$emit('selectNote', c.data.noteID);
+		});
+	}
+
+	$rootScope.$on('deleteNote', function(event,data) {
+		c.data.notes.splice(c.notePos, 1);
+	});
+
+}
+]]></client_script>
         <controller_as>c</controller_as>
-        <css/>
+        <css>h3.panel-title {
+  font-size:20px;
+  padding-top:5px;
+}</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -41,7 +58,7 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-	//create an array to populate with notes
+
 	data.notes = [];
 	var noteGR = new GlideRecord('x_snc_createnotes_note');
 	noteGR.addQuery('user', gs.getUser().getID());
@@ -49,35 +66,55 @@
 	noteGR.query();
 	while (noteGR.next()) {
 		var noteObj = {};
-		//use service portal helper method to get some display values
+
 		$sp.getRecordDisplayValues(noteObj, noteGR, 'number,title,sys_id');
-		//get the first 20 characters of the description
+
 		noteObj.note = noteGR.getValue('note').slice(0,20);
-		//push the populated obj into the array
+
 		data.notes.push(noteObj);
 	}
-})();]]></script>
+
+	if (input) {
+		if (input.action == 'newNote') {
+			var newNote = new GlideRecord('x_snc_createnotes_note');
+			newNote.newRecord();
+			var id = newNote.insert();
+			data.noteID = id;
+			data.newNote = {};
+			$sp.getRecordValues(data.newNote,newNote,"title,note,sys_id");
+
+		}
+	}
+}
+)();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-05-30 18:13:04</sys_created_on>
         <sys_id>06948fa8db3133000613a08a4896194c</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>Notes List</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_06948fa8db3133000613a08a4896194c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-05-30 18:59:22</sys_updated_on>
+        <sys_updated_on>2019-05-30 19:15:59</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default">
   <div class="panel-heading clearfix">
     <h3 class="panel-title pull-left">
       ${Notes}
     </h3>
+    <button class="btn btn-default pull-right" ng-click="c.newNote()"> 
+      <span class="glyphicon glyphicon-plus"></span> 
+    </button>
   </div>
+  <div class="panel-body"> 
+    <input placeholder="Filter" class="form-control" ng-model="noteFilter" /> 
+  </div>
+
   <div class="list-group">
-    <a class="list-group-item" ng-click="c.selectItem($index)" ng-repeat="note in data.notes">
+    <a class="list-group-item" ng-click="c.selectItem($index)" ng-repeat="note in data.notes | filter: noteFilter">
       <h4 class="list-group-item-heading">
         {{note.title}}
       </h4>
