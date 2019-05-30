@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sp_portal">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
     <sp_portal action="INSERT_OR_UPDATE">
         <css_variables>$brand-primary: #428bca;
 $body-bg: #f0f3f4;
@@ -56,6 +55,7 @@ $text-muted: #979797;
     <sys_translated_text action="delete_multiple" query="documentkey=b4c8d2e1094232007f44e1046c8ff652"/>
     <sys_attachment action="INSERT_OR_UPDATE">
         <average_image_color>#d1222b</average_image_color>
+        <chunk_size_bytes/>
         <compressed>true</compressed>
         <content_type>image/png</content_type>
         <file_name>logo</file_name>
@@ -63,12 +63,13 @@ $text-muted: #979797;
         <image_width>261</image_width>
         <size_bytes>7420</size_bytes>
         <size_compressed>7339</size_compressed>
+        <state>available</state>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-04-10 19:07:05</sys_created_on>
         <sys_id>84e89aa1094232007f44e1046c8ff69c</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-04-10 19:07:06</sys_updated_on>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>guest</sys_updated_by>
+        <sys_updated_on>2019-05-30 18:10:58</sys_updated_on>
         <table_name>ZZ_YYsp_portal</table_name>
         <table_sys_id>b4c8d2e1094232007f44e1046c8ff652</table_sys_id>
     </sys_attachment>
