@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function($rootScope,$scope) {
+        <client_script><![CDATA[function($rootScope,$scope,spUtil) {
 	/* widget controller */
 	var c = this;
 	// Use a position indicator to know which record to update
@@ -34,9 +34,57 @@
 	}
 
 	$rootScope.$on('deleteNote', function(event,data) {
-		c.data.notes.splice(c.notePos, 1);
+		c.data.notes.splice($scope.notePos, 1);
 	});
 
+	// Record removed from data object on the client and passed to server
+	c.snNoteUpdate = function(name,sysID){
+
+		for (var i=0;i<c.data.notes.length;i++){
+			if(c.data.notes[i].sys_id == name.data.sys_id){
+				if(name.data.record.note){
+					c.data.notes[i].note = name.data.record.note.display_value;
+				}
+				if(name.data.record.title){
+					c.data.notes[i].title = name.data.record.title.display_value;
+				}
+				c.server.update();
+
+			}
+		}
+	}
+
+	// Record removed from data object on the server and passed back to client
+	c.snNoteDelete = function(sysID){
+
+		c.server.get({
+			action: 'snDeleteNote',
+			noteID: sysID
+
+		}).then(function(r){
+			c.data.notes = r.data.notes;
+		});
+
+	}
+
+	spUtil.recordWatch($scope, "x_snc_createnotes_note", "numberANYTHING", function(name) {
+		console.log(name.data.operation); 
+		console.log(name); 
+		// Calls a Client Script function to do the update and pass the updated data object
+		// to the server.
+		if(name.data.operation == "update"){
+			c.snNoteUpdate(name, name.data.sys_id);
+		}
+		// Calls a Client Script function which does the update on the server and passes
+		// the updated data object back to the client.
+		if(name.data.operation == "delete"){
+			c.snNoteDelete(name.data.sys_id);
+		}
+		// Fast and easy... replace the client data object with the server data object
+		if(name.data.operation == "insert"){
+			c.server.refresh();
+		}
+	});
 }
 ]]></client_script>
         <controller_as>c</controller_as>
@@ -85,22 +133,34 @@
 			$sp.getRecordValues(data.newNote,newNote,"title,note,sys_id");
 
 		}
+
+		if (input.action == 'snDeleteNote') {
+			var delNote = new GlideRecord('x_snc_createnotes_note');
+			// The notes record should already be gone.  Just
+			// making sure it no longer exists.
+			if(delNote.get(input.noteID)){
+				delNote.deleteRecord();
+			}
+
+		}
+
 	}
 }
-)();]]></script>
+)();
+]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-05-30 18:13:04</sys_created_on>
         <sys_id>06948fa8db3133000613a08a4896194c</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>Notes List</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_06948fa8db3133000613a08a4896194c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-05-30 20:35:19</sys_updated_on>
+        <sys_updated_on>2019-05-30 23:08:20</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default">
   <div class="panel-heading clearfix">
     <h3 class="panel-title pull-left">
