@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function($scope,$rootScope) {
+        <client_script><![CDATA[function($scope,$rootScope,spModal,spUtil) {
 	/* widget controller */
 	var c = this;
 
@@ -29,11 +29,19 @@
 			}
 		});
 	}
+	c.confirmDelete = function(){
+     spModal.confirm("Are you sure you want to delete this Note record?").then(function(confirmed){
+       if(confirmed){
+       c.deleteNote();
+       }
+     });
+   }
 	c.deleteNote = function() {
 		c.server.get({
 			action: 'deleteNote',
 			noteID: c.data.noteID
 		}).then(function(r) {
+			spUtil.addTrivialMessage("The " + c.data.title + " record has been deleted.")
 			$rootScope.$emit('deleteNote', c.data.noteID);
 			c.data.title = '';
 			c.data.note = '';
@@ -88,14 +96,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-05-30 18:16:57</sys_created_on>
         <sys_id>7a7543e8db3133000613a08a4896195e</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>Notes  Body</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_7a7543e8db3133000613a08a4896195e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-05-30 19:09:11</sys_updated_on>
+        <sys_updated_on>2019-05-30 20:02:02</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default" ng-show="c.data.noteID">
   <div class="panel-heading clearfix">
     <div class="row">
@@ -103,7 +111,7 @@
         <input class="form-control" id="note-title" ng-model="c.data.title" ng-change="c.updateNote('title')" ng-model-options="{debounce: 1000}"/>
       </div>
       <div class="col-md-1"> 
-        <button class="btn btn-danger pull-right" ng-click="c.deleteNote()"> 
+        <button class="btn btn-danger pull-right" ng-click="c.confirmDelete()"> 
           <span class="glyphicon glyphicon-trash"></span> 
         </button> 
       </div>
