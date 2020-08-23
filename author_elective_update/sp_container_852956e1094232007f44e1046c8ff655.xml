@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>CreateNotes Home - Container 1</name>
+        <order>1</order>
+        <sp_page display_value="notes_home">a61956e1094232007f44e1046c8ff68b</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-04-10 19:08:14</sys_created_on>
+        <sys_id>852956e1094232007f44e1046c8ff655</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CreateNotes Home - Container 1</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>sp_container_852956e1094232007f44e1046c8ff655</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-04-10 19:08:14</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</application>
+        <file_path/>
+        <instance_id>36cfe30ddb5788d4b847ac44d4961967</instance_id>
+        <instance_name>dev101769</instance_name>
+        <name>sp_container_852956e1094232007f44e1046c8ff655</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="INSERT_OR_UPDATE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>CreateNotes Home - Container 1</name>
+        <order>1</order>
+        <sp_page display_value="notes_home">a61956e1094232007f44e1046c8ff68b</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-04-10 19:08:14</sys_created_on>
+        <sys_id>852956e1094232007f44e1046c8ff655</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CreateNotes Home - Container 1</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>sp_container_852956e1094232007f44e1046c8ff655</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-04-10 19:08:14</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+</record_update>]]></payload>
+        <payload_hash>632282018</payload_hash>
+        <record_name>CreateNotes Home - Container 1</record_name>
+        <reverted_from/>
+        <source>35a86d652f321010d2aa11c82799b6ab</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-22 23:30:29</sys_created_on>
+        <sys_id>dfa8ad652f321010d2aa11c82799b6d2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1741882597a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-22 23:30:29</sys_updated_on>
+        <type>Container</type>
+        <update_guid>9fa8ad659d3210101588d27b5a5e43d2</update_guid>
+        <update_guid_history>9fa8ad659d3210101588d27b5a5e43d2:632282018</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="CreateNotes Home - Container 1">07bc6d292f321010d2aa11c82799b61b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-22 23:48:14</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>43dce3ea975646fc852e1481d5994fa1</sys_id>
+        <sys_metadata>852956e1094232007f44e1046c8ff655</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CreateNotes Home - Container 1</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_scope_delete display_value="">64daa03572704d49a928bf08a985d6f9</sys_scope_delete>
+        <sys_update_name>sp_container_852956e1094232007f44e1046c8ff655</sys_update_name>
+        <sys_update_version display_value="sp_container_852956e1094232007f44e1046c8ff655">dfa8ad652f321010d2aa11c82799b6d2</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-22 23:48:14</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
